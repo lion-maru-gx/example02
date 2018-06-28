@@ -13,9 +13,10 @@ public class Main extends Application {
     private static Main instance;
 
     public static enum Page{
-        Main("Main.fxml"),
-        Page1("Page1.fxml"),
-        Page2("Page2.fxml");
+        Main("start.fxml"),
+        Page1("page1.fxml"),
+        Page11("page11.fxml"),
+        Page2("page2.fxml");
 
         // フィールドを定義
         private String url;
@@ -63,23 +64,6 @@ public class Main extends Application {
 
         this.setPage(page.url);
     }
-    /**
-     * Mainへ遷移する
-     * @param labelText
-     *
-    public void sendMainController(String labelText) {
-
-        this.setPage("Main.fxml");
-    }
-    /**
-     * Page1へ遷移する
-     * @param labelText
-     *
-    public void sendPage1Controller(String labelText) {
-
-        this.setPage("Page1.fxml");
-    }
-    */
     /**
      * シーンの変更
      * @param controller
