@@ -14,31 +14,66 @@ h2::before {
   content: counter(chapter) ". ";
 }
 </style>
-<h1>example02(画面遷移の習作)</h1>
-<h2>画面構成</h2>
-<p>以下の画面の遷移を行う</p>
-<ul>
-<li>main(開始画面)</li>
-<li>page1(開始画面より遷移)</li>
-<li>page11(page1より遷移)</li>
-<li>page2(開始画面より遷移)</li>
-</ul>
-<svg>
-</svg>
-<h2>Main.java</h2>
-<p>
-</p>
-<h2>MainController.java</h2>
-<p>
-</p>
-<h2>Page1Controller.java</h2>
-<p>
-</p>
-<h2>Page11Controller.java</h2>
-<p>
-</p>
-<h2>Page2Controller.java</h2>
-<p>
-</p>
+<article>
+	<h1>example02(画面遷移の習作)</h1>
+	<section>
+		<h2>画面構成</h2>
+		<p>以下の画面の遷移を行う</p>
+		<ul>
+		<li>main(開始画面)</li>
+		<li>page1(開始画面より遷移)</li>
+		<li>page11(page1より遷移)</li>
+		<li>page2(開始画面より遷移)</li>
+		</ul>
+		<svg>
+		</svg>
+	</section>
+	<section>
+		<h2>Main.java</h2>
+		<p>全ての画面をemumで定義して他のクラスからも参照できるようにpublc staticで定義する。</p>
+<pre>
+	public static enum Page{
+		Main("main.fxml"),
+		Page1("page1.fxml"),
+		Page11("page11.fxml"),
+		Page2("page2.fxml");
+
+		// フィールドを定義
+		private String url;
+
+		// コンストラクタを定義
+		private Page(String url) {
+			this.url = url;
+		}
+
+		// メソッド
+		public String getValue() {
+			return this.url;
+		}
+
+	};
+</pre>
+	</section>
+	<section>
+	<h2>MainController.java</h2>
+	<p>
+	</p>
+	</section>
+	<section>
+	<h2>Page1Controller.java</h2>
+	<p>
+	</p>
+	</section>
+	<section>
+	<h2>Page11Controller.java</h2>
+	<p>
+	</p>
+	</section>
+	<section>
+	<h2>Page2Controller.java</h2>
+	<p>
+	</p>
+	</section>
+</article>
 </body>
 </html>
