@@ -13,7 +13,7 @@ public class Main extends Application {
     private static Main instance;
 
     public static enum Page{
-        Main("start.fxml"),
+        Main("main.fxml"),
         Page1("page1.fxml"),
         Page11("page11.fxml"),
         Page2("page2.fxml");
