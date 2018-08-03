@@ -9,11 +9,11 @@
    <center>
       <Pane prefHeight="600.0" prefWidth="800.0" BorderPane.alignment="CENTER">
          <children>
-            <Button layoutX="282.0" layoutY="141.0" mnemonicParsing="false" onAction="#handleButtonAction" text="ページ１" textAlignment="CENTER">
+            <Button layoutX="282.0" layoutY="141.0" mnemonicParsing="false" onAction="#handleButton1Action" text="ページ１" textAlignment="CENTER">
                <font>
                   <Font size="18.0" />
                </font></Button>
-            <Button layoutX="282.0" layoutY="218.0" mnemonicParsing="false" text="ページ２">
+            <Button layoutX="282.0" layoutY="218.0" mnemonicParsing="false" onAction="#handleButton2Action" text="ページ２">
                <font>
                   <Font size="18.0" />
                </font></Button>

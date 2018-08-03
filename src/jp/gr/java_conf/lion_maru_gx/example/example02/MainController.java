@@ -16,8 +16,15 @@ public class MainController {
      * ボタンクリックアクション
      */
     @FXML
-    protected void handleButtonAction() {
+    protected void handleButton1Action() {
         Main.getInstance().sendController(Main.Page.Page1);
+    }
+    /**
+     * ボタンクリックアクション
+     */
+    @FXML
+    protected void handleButton2Action() {
+        Main.getInstance().sendController(Main.Page.Page2);
     }
 
 }
