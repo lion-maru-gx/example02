@@ -57,7 +57,7 @@ public class Main extends Application {
 	}
 
     /**
-     * Mainへ遷移する
+     * ページ移動
      * @param labelText
      */
     public void sendController(Page page) {

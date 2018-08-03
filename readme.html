@@ -17,6 +17,12 @@ h2::before {
 <article>
 	<h1>example02(画面遷移の習作)</h1>
 	<section>
+		<h2>概要</h2>
+		<p>本プログラムは、JavaFXでのページ遷移の機能確認のために作成した。<br>
+		多画面構成ではなく、単画面構成で画面内容が書き変わる構成となっている。
+		</p>
+	</section>
+	<section>
 		<h2>画面構成</h2>
 		<p>以下の画面の遷移を行う</p>
 		<ul>
@@ -26,6 +32,96 @@ h2::before {
 		<li>page2(開始画面より遷移)</li>
 		</ul>
 		<svg>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:3.88055563px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="25"
+       y="16.058332"
+       id="text14"><tspan
+         sodipodi:role="line"
+         x="25"
+         y="16.058332"
+         style="stroke-width:0.26458332"
+         id="tspan16">Main</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:3.88055563px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="54.233337"
+       y="16.058332"
+       id="text22"><tspan
+         sodipodi:role="line"
+         id="tspan20"
+         x="54.233337"
+         y="16.058332"
+         style="stroke-width:0.26458332">Page1</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:3.88055563px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="82.937508"
+       y="16.058332"
+       id="text26"><tspan
+         sodipodi:role="line"
+         id="tspan24"
+         x="82.937508"
+         y="16.058332"
+         style="stroke-width:0.26458332">Page11</tspan><tspan
+         sodipodi:role="line"
+         x="82.937508"
+         y="20.909027"
+         style="stroke-width:0.26458332"
+         id="tspan28" /></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:3.88055563px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="53.70417"
+       y="35.820839"
+       id="text32"><tspan
+         sodipodi:role="line"
+         x="53.70417"
+         y="35.820839"
+         style="stroke-width:0.26458332"
+         id="tspan34">Page2</tspan></text>
+    <rect
+       id="rect38"
+       width="20"
+       height="10"
+       x="20"
+       y="10"
+       style="fill:none;stroke:#000000;stroke-width:0.27054119;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+    <rect
+       id="rect38-4"
+       width="20"
+       height="10"
+       x="50"
+       y="10"
+       style="fill:none;stroke:#000000;stroke-width:0.27011877;stroke-opacity:1" />
+    <rect
+       id="rect38-4-5"
+       width="20"
+       height="10"
+       x="80"
+       y="10"
+       style="fill:none;stroke:#000000;stroke-width:0.27011877;stroke-opacity:1" />
+    <rect
+       id="rect38-4-8"
+       width="20"
+       height="10"
+       x="50"
+       y="30"
+       style="fill:none;stroke:#000000;stroke-width:0.26458332;stroke-opacity:1" />
+    <path
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:0.3px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="M 40,15 H 50"
+       id="path4636" />
+    <path
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:0.3px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="M 40,15 50,35"
+       id="path4642" />
+    <path
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:0.3px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="M 70,15 H 80"
+       id="path4644"
+ />
 		</svg>
 	</section>
 	<section>
@@ -53,11 +149,62 @@ h2::before {
 
 	};
 </pre>
+	<p>
+	別クラスからsendController(Page page)を呼び出してページ移動を実行する。<br>
+	setPage(String url)でページのロードを行う。
+	</p>
+	<pre>
+    /**
+     * ページ移動
+     * @param labelText
+     */
+    public void sendController(Page page) {
+
+        this.setPage(page.url);
+    }
+    /**
+     * シーンの変更
+     * @param controller
+     */
+    private void setPage(String url) {
+        Parent root;
+
+        try {
+            root = FXMLLoader.load(getClass().getResource(url));
+            stage.setScene(new Scene(root, 800, 600));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+	</pre>
+	<p>
+	他クラスからMainクラスのメソッドを呼び出すためにinstanceを渡すためのstaticメソッドを用意する。
+	</p>
+	<pre>
+    /**
+     * Get Instance
+     *
+     * @return
+     */
+    public static Main getInstance() {
+        return instance;
+    }
+	</pre>
 	</section>
 	<section>
 	<h2>MainController.java</h2>
 	<p>
+	他クラスからページ移動は以下のように行う。
 	</p>
+	<pre>
+    /**
+     * ボタンクリックアクション
+     */
+    @FXML
+    protected void handleButton1Action() {
+        Main.getInstance().sendController(Main.Page.Page1);
+    }
+	</pre>
 	</section>
 	<section>
 	<h2>Page1Controller.java</h2>
